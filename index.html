@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nishith Rajyaguru - Senior Web Engineer</title>
+    <meta
+      name="description"
+      content="Senior Web Engineer with 10+ years of experience in Angular, React, and scalable web solutions. Available for consulting and project collaboration."
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #3b82f6;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --background-light: #f8fafc;
+        --white: #ffffff;
+        --border-color: #e5e7eb;
+        --success-color: #10b981;
+        --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--white);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: var(--gradient);
+        color: var(--white);
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 30px;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        opacity: 0.85;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--white);
+        color: var(--primary-color);
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s ease-out 0.6s both;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Navigation */
+      nav {
+        background: var(--white);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Sections */
+      .section {
+        padding: 80px 0;
+      }
+
+      .section:nth-child(even) {
+        background-color: var(--background-light);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .about-image {
+        text-align: center;
+      }
+
+      .profile-placeholder {
+        width: 300px;
+        height: 300px;
+        background: var(--gradient);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        text-align: center;
+      }
+
+      .contact-info p {
+        margin: 10px 0;
+        color: var(--text-secondary);
+      }
+
+      .languages {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .language-tag {
+        background: var(--accent-color);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .stat {
+        text-align: center;
+        padding: 20px;
+        background: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .skill-category {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+      }
+
+      .skill-category h3 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .skill-icon {
+        width: 24px;
+        height: 24px;
+        background: var(--accent-color);
+        border-radius: 50%;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tag {
+        background: var(--background-light);
+        color: var(--text-primary);
+        padding: 8px 15px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border-color);
+      }
+
+      /* Experience Section */
+      .experience-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border-color);
+      }
+
+      .experience-item {
+        position: relative;
+        margin-bottom: 40px;
+        padding-left: 80px;
+      }
+
+      .experience-item::before {
+        content: "";
+        position: absolute;
+        left: 21px;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        border: 4px solid var(--white);
+        box-shadow: 0 0 0 4px var(--border-color);
+      }
+
+      .experience-card {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .experience-period {
+        color: var(--accent-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .experience-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 5px 0;
+      }
+
+      .experience-company {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .experience-description {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .achievements {
+        margin-top: 15px;
+      }
+
+      .achievements h4 {
+        color: var(--primary-color);
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+
+      .achievements ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .achievements li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      .achievements li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-color);
+        font-weight: bold;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: var(--gradient);
+        color: var(--white);
+      }
+
+      .contact-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-content h2 {
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+
+      .contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .contact-method {
+        text-align: center;
+      }
+
+      .contact-method h4 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .contact-method p {
+        opacity: 0.9;
+      }
+
+      .contact-method a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .contact-method a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--text-primary);
+        color: var(--white);
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .contact-methods {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .experience-item {
+          padding-left: 60px;
+        }
+
+        .experience-timeline::before {
+          left: 20px;
+        }
+
+        .experience-item::before {
+          left: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Nishith Rajyaguru</h1>
+          <p class="hero-subtitle">Senior Web Engineer & Technical Leader</p>
+          <p class="hero-description">
+            9+ years of expertise in architecting scalable web solutions,
+            leading high-performance teams, and driving innovation with
+            cutting-edge technologies like Angular, React, and modern JavaScript
+            frameworks.
+          </p>
+          <a href="#contact" class="cta-button">Let's Collaborate</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">NR</div>
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            Passionate about creating exceptional digital experiences through
+            innovative web solutions
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-image">
+            <div class="profile-placeholder">NR</div>
+            <div class="contact-info">
+              <p><strong>📱 Phone:</strong> +91-9427963633</p>
+              <p><strong>✉️ Email:</strong> nishith.rajyaguru@gmail.com</p>
+              <div class="languages">
+                <span class="language-tag">English</span>
+                <span class="language-tag">Hindi</span>
+                <span class="language-tag">German (A1)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <h3>Senior Web Engineer & Technical Leader</h3>
+            <p>
+              With over 10 years of rich experience in web development, I
+              specialize in architecting scalable solutions and leading
+              high-performance teams to deliver exceptional user experiences. My
+              expertise spans across modern frameworks including Angular (2-16),
+              React, and cutting-edge JavaScript technologies.
+            </p>
+            <p>
+              As a technical leader, I've successfully mentored teams,
+              implemented best practices, and streamlined development processes
+              while maintaining a strong commitment to innovation and quality. I
+              thrive in collaborative environments and excel at bridging the gap
+              between complex technical requirements and business objectives.
+            </p>
+            <p>
+              My approach combines deep technical expertise with strategic
+              thinking, ensuring that every project not only meets current needs
+              but is also positioned for future growth and scalability.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Team Members Led</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">
+            Comprehensive skill set covering modern web development technologies
+            and methodologies
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Frontend Frameworks</h3>
+            <div class="skills-list">
+              <span class="skill-tag">Angular 16</span>
+              <span class="skill-tag">Angular 2-15</span>
+              <span class="skill-tag">ReactJS</span>
+              <span class="skill-tag">NX</span>
+              <span class="skill-tag">Angular Material</span>
+              <span class="skill-tag">RxJS</span>
+              <span class="skill-tag">NgRx</span>
+              <span class="skill-tag">Redux</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Programming Languages</h3>
+            <div class="skills-list">
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Java (Basic)</span>
+              <span class="skill-tag">Dart (Intermediate)</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Web Technologies</h3>
+            <div class="skills-list">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">SASS/SCSS</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">jQuery</span>
+              <span class="skill-tag">AJAX</span>
+              <span class="skill-tag">JSON</span>
+              <span class="skill-tag">RESTful APIs</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Development Tools</h3>
+            <div class="skills-list">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">JIRA</span>
+              <span class="skill-tag">CI/CD Pipeline</span>
+              <span class="skill-tag">NX Cloud</span>
+              <span class="skill-tag">Jasmine</span>
+              <span class="skill-tag">Karma</span>
+              <span class="skill-tag">Jest</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Architecture & Patterns</h3>
+            <div class="skills-list">
+              <span class="skill-tag">Micro-frontend</span>
+              <span class="skill-tag">OOP Concepts</span>
+              <span class="skill-tag">Design Patterns</span>
+              <span class="skill-tag">Scalable Architecture</span>
+              <span class="skill-tag">Component Design</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><span class="skill-icon"></span>Methodology</h3>
+            <div class="skills-list">
+              <span class="skill-tag">Agile/Scrum (6+ years)</span>
+              <span class="skill-tag">SDLC</span>
+              <span class="skill-tag">Code Review</span>
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">Mentoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Professional Experience</h2>
+          <p class="section-subtitle">
+            A proven track record of delivering complex web solutions and
+            leading successful teams
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <div class="experience-card">
+              <div class="experience-period">Dec 2021 – May 2024</div>
+              <div class="experience-title">Principal Web Engineer (A4)</div>
+              <div class="experience-company">
+                Tide Platform Pvt. Ltd. - Hyderabad
+              </div>
+              <div class="experience-description">
+                Led critical initiatives in the Accounting product, overseeing
+                planning and delivery while mentoring junior and mid-senior
+                engineers to accelerate their growth and performance.
+              </div>
+              <div class="achievements">
+                <h4>Key Achievements:</h4>
+                <ul>
+                  <li>
+                    Reduced build and pipeline time by 80% through NXCloud
+                    implementation during Hackathon
+                  </li>
+                  <li>
+                    Improved Grid operations usability, reducing member entry
+                    time by 60%
+                  </li>
+                  <li>
+                    Successfully navigated complex accounting and trial-balance
+                    modules
+                  </li>
+                  <li>
+                    Implemented Micro-frontend architecture for enhanced
+                    pipeline efficiency
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-card">
+              <div class="experience-period">Feb 2021 – Dec 2021</div>
+              <div class="experience-title">Software Engineer</div>
+              <div class="experience-company">
+                EPAM Systems India - Hyderabad
+              </div>
+              <div class="experience-description">
+                Focused on advanced web development projects using modern
+                Angular frameworks, contributing to high-performance
+                applications and complex business solutions.
+              </div>
+              <div class="achievements">
+                <h4>Recognition:</h4>
+                <ul>
+                  <li>On the Spot Award for exceptional performance</li>
+                  <li>Sprint Hero recognition (twice)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-card">
+              <div class="experience-period">Mar 2019 – Feb 2021</div>
+              <div class="experience-title">IT Analyst & Technical Leader</div>
+              <div class="experience-company">
+                Tata Consultancy Services - Gandhinagar
+              </div>
+              <div class="experience-description">
+                Served as Technical Leader managing a team of 12 associates,
+                responsible for performance reviews, appraisals, and successful
+                delivery of multiple web projects within tight deadlines.
+              </div>
+              <div class="achievements">
+                <h4>Leadership Excellence:</h4>
+                <ul>
+                  <li>Led team to achieve results within given timelines</li>
+                  <li>Received Valuable Contribution Award (Quarterly)</li>
+                  <li>Awarded Project Team of the Year recognition</li>
+                  <li>
+                    Successfully handled client communication as key team asset
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-card">
+              <div class="experience-period">Oct 2017 – Feb 2019</div>
+              <div class="experience-title">Software Developer</div>
+              <div class="experience-company">Cygnet Infotech - Ahmedabad</div>
+              <div class="experience-description">
+                Developed reusable component suites to optimize product
+                codebase, while establishing strong client relationships and
+                becoming a go-to technical resource for the team.
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-card">
+              <div class="experience-period">Jul 2013 – Dec 2015</div>
+              <div class="experience-title">Software Developer</div>
+              <div class="experience-company">
+                Synoverge Technologies Pvt. Ltd. - Ahmedabad
+              </div>
+              <div class="experience-description">
+                Delivered cross-platform mobile and web applications using
+                latest frontend frameworks including AngularJS, Backbone, and
+                jQuery Mobile. Implemented complete SDLC following Agile
+                methodology.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-content">
+          <h2>Let's Build Something Amazing Together</h2>
+          <p>
+            Ready to take your web project to the next level? I'm available for
+            consulting, project collaboration, and technical leadership
+            opportunities. Let's discuss how we can create exceptional digital
+            experiences together.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h4>📱 Call Me</h4>
+              <p><a href="tel:+919427963633">+91-9427963633</a></p>
+            </div>
+            <div class="contact-method">
+              <h4>✉️ Email Me</h4>
+              <p>
+                <a href="mailto:nishith.rajyaguru@gmail.com"
+                  >nishith.rajyaguru@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Nishith Rajyaguru. All rights reserved. | Senior Web
+          Engineer & Technical Leader
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all skill categories and experience items
+      document
+        .querySelectorAll(".skill-category, .experience-card")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
