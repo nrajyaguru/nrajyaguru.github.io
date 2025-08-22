@@ -410,6 +410,37 @@
         font-weight: bold;
       }
 
+      /* Education */
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .edu-card {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .edu-year {
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .edu-degree {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .edu-institution {
+        color: var(--text-light);
+        margin-bottom: 10px;
+      }
+      .edu-grade {
+        color: var(--text-dark);
+        font-weight: 500;
+      }
+
       /* Contact Section */
       .contact-section {
         background: var(--gradient);
@@ -829,6 +860,36 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <div class="section-header container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-sub">
+          Strong academic foundation supporting my technical career.
+        </p>
+      </div>
+      <div class="education-grid container">
+        <div class="edu-card">
+          <div class="edu-year">2016</div>
+          <div class="edu-degree">MS Computer Science</div>
+          <div class="edu-institution">RPTU Kaiserslautern</div>
+          <div class="edu-grade">Germany</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2013</div>
+          <div class="edu-degree">
+            B.Tech. in Computer Science & Engineering
+          </div>
+          <div class="edu-institution">Dharmsinh Desai University, Gujarat</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2009</div>
+          <div class="edu-degree">H.S.C. – GSEB</div>
+          <div class="edu-institution">P.V. Modi High School, Rajkot</div>
         </div>
       </div>
     </section>
